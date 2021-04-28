@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+		<link href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" rel="stylesheet" type="text/css" />
+		<link
+			rel="stylesheet"
+			href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+			integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+			crossorigin="anonymous"
+		/>
+		<script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script>
+		<script
+			src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+			integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+			crossorigin="anonymous"
+		></script>
+		<script type="text/javascript" src="//vk.com/js/api/xd_connection.js?2" charset="utf-8"></script>
+		<script type="text/javascript" src="//ad.mail.ru/static/admanhtml/rbadman-html5.min.js" charset="utf-8"></script>
+		<script type="text/javascript" src="//vk.com/js/api/adman_init.js" charset="utf-8"></script>
+		<link rel="stylesheet" href="styles.css" />
+		<title>Document</title>
+	</head>
+	<body>
+		<div id="main" class="section">
+			<div class="top-section">
+				<div class="main-header">
+					<a class="avatar-wrapper" target="_blank" href="https://vk.com/club192847668">
+						<img
+							class="avatar"
+							src="https://sun9-14.userapi.com/impg/gXc7TgXfB9oYTO9CzOFeCr23Zw7xyIe3J-7HHw/GuGidp0AIvI.jpg?size=807x682&quality=96&sign=c1a663a71c6c70a96571e0b16efec8ae&type=album"
+						/>
+					</a>
+					<div class="header-text">ЛИЦЕНЗИЯ ОТ ХЕНТАЙ ПРИКОЛЫ</div>
+				</div>
+				<div class="content content-lg">
+					<div class="license-preview" id="preview">
+						<div id="fill" style="height: 253.125px"></div>
+						<div class="preview-photo" pic="https://zotoff.tk/projects/vkapps/morsik/source/img/license/default.png"></div>
+						<img class="preview-background" src="backgrounds\\white.png" />
+						<img class="preview-front" src="gradients\\rainbow1.png" />
+						<div class="preview-id"></div>
+						<div class="preview-type">на лолю</div>
+						<div class="preview-name">Василий Пупкин</div>
+						<div class="preview-date"></div>
+						<div class="preview-dateend"></div>
+						<div class="just-preview">Превью.</div>
+					</div>
+				</div>
+			</div>
+			<div class="content content-lg" id="settings" style="max-height: 553.875px">
+				<div class="sett-item">
+					<div class="sett-header">ЦВЕТ КАРТОЧКИ</div>
+					<div class="sett-content" style="padding-bottom: 47.5px">
+						<div class="sett-color sett-cardcolor clr-blue selected" data-id="1"></div>
+						<div class="sett-color sett-cardcolor clr-red" data-id="2"></div>
+						<div class="sett-color sett-cardcolor clr-pink" data-id="3"></div>
+						<div class="sett-color sett-cardcolor clr-gold" data-id="4"></div>
+						<div class="sett-color sett-cardcolor clr-gray" data-id="5"></div>
+						<div class="sett-color sett-cardcolor clr-gradient" data-id="6"></div>
+					</div>
+				</div>
+				<div class="sett-item">
+					<div class="sett-header">ЦВЕТ ФОНА</div>
+					<div class="sett-content" style="padding-bottom: 47.5px">
+						<div class="sett-color sett-backcolor bclr-white selected" data-id="1"></div>
+						<div class="sett-color sett-backcolor bclr-gold" data-id="2"></div>
+						<div class="sett-color sett-backcolor bclr-blue" data-id="3"></div>
+						<div class="sett-color sett-backcolor bclr-gray" data-id="4"></div>
+					</div>
+				</div>
+				<div class="sett-item">
+					<div class="sett-header">ТИП ЛИЦЕНЗИИ<span class="float-right" id="type-used">7/10</span></div>
+					<div class="sett-content">
+						<input autocomplete="off" type="text" maxlength="10" id="type" value="на лолю" onkeyup="changeType()" onchange="changeType()" />
+					</div>
+				</div>
+				<div class="sett-item">
+					<div class="sett-header">ВАШЕ ИМЯ/НИКНЕЙМ<span class="float-right" id="name-used">0/20</span></div>
+					<div class="sett-content">
+						<input autocomplete="off" id="name" type="text" maxlength="20" value="" onkeyup="changeName()" onchange="changeName()" />
+					</div>
+				</div>
+				<div class="sett-item">
+					<div class="sett-header">СВОЯ КАРТИНКА<span id="image-used" class="photo-chooser float-right">Файл не выбран.</span></div>
+					<div class="sett-content">
+						<button class="choose-photo" onclick='$("#photo").trigger("click");'><i class="far fa-file-image"></i></button>
+						<input type="file" multiple="false" id="photo" accept="image/*" style="display: none" onchange="changePhoto(this)" />
+						<div style="font-size: 0.7em; color: #666" class="mt-2"><i class="fas fa-info-circle ml-1 mr-1"></i> Рекомендуем использовать квадратные изображения.</div>
+					</div>
+				</div>
+			</div>
+			<div class="footer">
+				<button class="btn btn-success btn-block btn-start" onclick='$("#messages").modal(); sendRequest()'><i class="far fa-check-circle"></i> ГОТОВО!</button>
+			</div>
+		</div>
+		<div id="start" class="section" style="">
+			<table style="width: 100%; height: calc(100% - 90px)">
+				<tbody>
+					<tr>
+						<td style="text-align: center; margin: auto">
+							<div style="max-width: 500px; display: contents">
+								<img src="start-license.png" class="start-license" />
+								<div style="padding-left: 37px; padding-right: 37px">
+									<div class="heading-start">
+										<div class="heading-start-text-bold">Данное приложение поможет создать лицензию на лолю или любую другую лицензию, которую вы придумаете!</div>
+										<div class="heading-start-text-muted">Лицензии созданные в этом приложении являются всего лишь шуткой и не имеют никакой юридической силы.</div>
+									</div>
+								</div>
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="footer">
+				<button class="btn btn-success btn-block btn-start" onclick='document.cookie = "start=true; max-age=9999999; path=/";$("#start").fadeOut(100);'>ПОЕХАЛИ!</button>
+			</div>
+		</div>
+		<div class="modal fade show" id="messages" tabindex="-1" aria-modal="true">
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content" style="border-radius: 15px">
+					<div class="modal-header" style="border-radius: 15px">
+						<h5 class="modal-title" id="exampleModalLabel">Доступ к сообщениям</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true" style="color: white !important; font-size: 0.8em"><i class="fas fa-times"></i></span>
+						</button>
+					</div>
+					<div class="modal-body">Бот отправит Вам лицензию в личные сообщения в течение минуты. Разрешите присылать сообщения если Вы не сделали этого раньше.</div>
+					<div class="modal-footer" style="border-radius: 15px">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
+						<button type="button" class="btn btn-success" data-dismiss="modal" onclick="$('.modal').fadeOut(100);">Ок</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="common.js" id="common"></script>
+	<script type="text/javascript" src="//ad.mail.ru/static/admanhtml/rbadman-html5.min.js" charset="utf-8"></script>
+	<script type="text/javascript" src="//vk.com/js/api/adman_init.js" charset="utf-8"></script>
+</html>
